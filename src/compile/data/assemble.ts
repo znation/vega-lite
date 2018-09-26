@@ -1,3 +1,4 @@
+import {debugTree} from '../../../src/debugTree';
 import {InlineDataset, isUrlData} from '../../data';
 import {Dict, vals} from '../../util';
 import {VgData} from '../../vega.schema';
@@ -206,6 +207,11 @@ export function assembleFacetData(root: FacetNode): VgData[] {
   );
 
   return data;
+}
+
+export function logRootData(dataComponent: DataComponent, datasets: Dict<InlineDataset>) {
+  const roots: SourceNode[] = vals(dataComponent.sources);
+  return debugTree(roots);
 }
 
 /**

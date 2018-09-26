@@ -4,7 +4,7 @@ import * as bin from './bin';
 import * as channel from './channel';
 import * as compositeMark from './compositemark';
 export {TopLevelSpec} from './spec';
-export {compile} from './compile/compile';
+export {compile, myCompile} from './compile/compile';
 export {Config} from './config';
 import * as config from './config';
 import * as data from './data';

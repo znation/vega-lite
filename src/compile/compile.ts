@@ -5,7 +5,7 @@ import {isLayerSpec, isUnitSpec, LayoutSizeMixins, normalize, TopLevel, TopLevel
 import {AutoSizeParams, extractTopLevelProperties, normalizeAutoSize, TopLevelProperties} from '../toplevelprops';
 import {keys, mergeDeep} from '../util';
 import {buildModel} from './buildmodel';
-import {assembleRootData} from './data/assemble';
+import {assembleRootData, logRootData} from './data/assemble';
 import {optimizeDataflow} from './data/optimize';
 import {Model} from './model';
 
@@ -103,12 +103,80 @@ export function compile(inputSpec: TopLevelSpec, opt: CompileOptions = {}) {
   }
 }
 
+export function myCompile(inputSpec: TopLevelSpec, opt: CompileOptions = {}) {
+  // 0. Augment opt with default opts
+  if (opt.logger) {
+    // set the singleton logger to the provided logger
+    log.set(opt.logger);
+  }
+
+  if (opt.fieldTitle) {
+    // set the singleton field title formatter
+    vlFieldDef.setTitleFormatter(opt.fieldTitle);
+  }
+
+  try {
+    // 1. Initialize config by deep merging default config with the config provided via option and the input spec.
+    const config = initConfig(mergeDeep({}, opt.config, inputSpec.config));
+
+    // 2. Normalize: Convert input spec -> normalized spec
+
+    // - Decompose all extended unit specs into composition of unit spec.  For example, a box plot get expanded into multiple layers of bars, ticks, and rules. The shorthand row/column channel is also expanded to a facet spec.
+    const spec = normalize(inputSpec, config);
+    // - Normalize autosize to be a autosize properties object.
+    const autosize = normalizeAutoSize(inputSpec.autosize, config.autosize, isLayerSpec(spec) || isUnitSpec(spec));
+
+    // 3. Build Model: normalized spec -> Model (a tree structure)
+
+    // This phases instantiates the models with default config by doing a top-down traversal. This allows us to pass properties that child models derive from their parents via their constructors.
+    // See the abstract `Model` class and its children (UnitModel, LayerModel, FacetModel, RepeatModel, ConcatModel) for different types of models.
+    const model: Model = buildModel(spec, null, '', undefined, undefined, config, autosize.type === 'fit');
+
+    // 4 Parse: Model --> Model with components
+
+    // Note that components = intermediate representations that are equivalent to Vega specs.
+    // We need these intermediate representation because we need to merge many visualizaiton "components" like projections, scales, axes, and legends.
+    // We will later convert these components into actual Vega specs in the assemble phase.
+
+    // In this phase, we do a bottom-up traversal over the whole tree to
+    // parse for each type of components once (e.g., data, layout, mark, scale).
+    // By doing bottom-up traversal, we start parsing components of unit specs and
+    // then merge child components of parent composite specs.
+    //
+    // Please see inside model.parse() for order of different components parsed.
+    model.parse();
+
+    // 5. Optimize the dataflow.  This will modify the data component of the model.
+    optimizeDataflow(model.component.data);
+
+    // 6. Assemble: convert model components --> Vega Spec.
+    return logTopLevelModel(model, getTopLevelProperties(inputSpec, config, autosize));
+  } finally {
+    // Reset the singleton logger if a logger is provided
+    if (opt.logger) {
+      log.reset();
+    }
+    // Reset the singleton field title formatter if provided
+    if (opt.fieldTitle) {
+      vlFieldDef.resetTitleFormatter();
+    }
+  }
+}
+
 function getTopLevelProperties(topLevelSpec: TopLevel<any>, config: Config, autosize: AutoSizeParams) {
   return {
     autosize: keys(autosize).length === 1 && autosize.type ? autosize.type : autosize,
     ...extractTopLevelProperties(config),
     ...extractTopLevelProperties(topLevelSpec)
   };
+}
+
+function logTopLevelModel(model: Model, topLevelProperties: TopLevelProperties & LayoutSizeMixins) {
+  // TODO: change type to become VgSpec
+
+  // Config with Vega-Lite only config removed.
+  // const vgConfig = model.config ? stripAndRedirectConfig(model.config) : undefined;
+  return logRootData(model.component.data, topLevelProperties.datasets || {});
 }
 
 /*
