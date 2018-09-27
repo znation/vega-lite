@@ -64,7 +64,7 @@
         },
         {
           "type": "lookup",
-          "from": "source_1",
+          "from": "layer_2_lookup_1",
           "key": "iata",
           "fields": ["destination"],
           "values": ["latitude", "longitude"],

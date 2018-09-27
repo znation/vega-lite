@@ -14,11 +14,7 @@
     {
       "name": "source_1",
       "url": "data/us-state-capitals.json",
-      "format": {"type": "json", "parse": {"lon": "number", "lat": "number"}}
-    },
-    {
-      "name": "data_0",
-      "source": "source_1",
+      "format": {"type": "json", "parse": {"lon": "number", "lat": "number"}},
       "transform": [
         {
           "type": "geojson",
@@ -30,23 +26,6 @@
           "projection": "projection",
           "fields": ["lon", "lat"],
           "as": ["layer_1_layer_0_x", "layer_1_layer_0_y"]
-        }
-      ]
-    },
-    {
-      "name": "data_1",
-      "source": "source_1",
-      "transform": [
-        {
-          "type": "geojson",
-          "fields": ["lon", "lat"],
-          "signal": "layer_1_layer_1_geojson_0"
-        },
-        {
-          "type": "geopoint",
-          "projection": "projection",
-          "fields": ["lon", "lat"],
-          "as": ["layer_1_layer_1_x", "layer_1_layer_1_y"]
         }
       ]
     }
@@ -76,7 +55,7 @@
       "name": "layer_1_layer_0_marks",
       "type": "symbol",
       "style": ["circle"],
-      "from": {"data": "data_0"},
+      "from": {"data": "source_1"},
       "encode": {
         "update": {
           "opacity": {"value": 0.7},
@@ -94,7 +73,7 @@
       "name": "layer_1_layer_1_marks",
       "type": "text",
       "style": ["text"],
-      "from": {"data": "data_1"},
+      "from": {"data": "layer_1_layer_1_main"},
       "encode": {
         "update": {
           "dy": {"value": -6},

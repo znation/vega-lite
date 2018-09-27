@@ -55,7 +55,7 @@
       "type": "line",
       "style": ["line", "errorband-borders"],
       "sort": {"field": "datum[\"year_Year\"]", "order": "descending"},
-      "from": {"data": "source_0"},
+      "from": {"data": "layer_0_layer_1_main"},
       "encode": {
         "update": {
           "stroke": {"value": "black"},
@@ -75,7 +75,7 @@
       "type": "line",
       "style": ["line", "errorband-borders"],
       "sort": {"field": "datum[\"year_Year\"]", "order": "descending"},
-      "from": {"data": "source_0"},
+      "from": {"data": "layer_0_layer_2_main"},
       "encode": {
         "update": {
           "stroke": {"value": "black"},
@@ -95,15 +95,25 @@
     {
       "name": "x",
       "type": "time",
-      "domain": {"data": "source_0", "field": "year_Year"},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "year_Year"},
+          {"data": "layer_0_layer_1_main", "field": "year_Year"},
+          {"data": "layer_0_layer_2_main", "field": "year_Year"}
+        ]
+      },
       "range": [0, {"signal": "width"}]
     },
     {
       "name": "y",
       "type": "linear",
       "domain": {
-        "data": "source_0",
-        "fields": ["lower_Miles_per_Gallon", "upper_Miles_per_Gallon"]
+        "fields": [
+          {"data": "source_0", "field": "lower_Miles_per_Gallon"},
+          {"data": "source_0", "field": "upper_Miles_per_Gallon"},
+          {"data": "layer_0_layer_1_main", "field": "lower_Miles_per_Gallon"},
+          {"data": "layer_0_layer_2_main", "field": "upper_Miles_per_Gallon"}
+        ]
       },
       "range": [{"signal": "height"}, 0],
       "zero": false,

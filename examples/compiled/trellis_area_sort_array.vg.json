@@ -202,13 +202,16 @@
     {
       "name": "x",
       "type": "time",
-      "domain": {"data": "source_0", "field": "date"},
+      "domain": {"data": "scale_child_main", "field": "date"},
       "range": [0, {"signal": "child_width"}]
     },
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "fields": ["price_start", "price_end"]},
+      "domain": {
+        "data": "scale_child_main",
+        "fields": ["price_start", "price_end"]
+      },
       "range": [{"signal": "child_height"}, 0],
       "nice": true,
       "zero": true
@@ -216,7 +219,7 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "symbol", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "symbol", "sort": true},
       "range": "category"
     }
   ],

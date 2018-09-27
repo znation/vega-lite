@@ -164,7 +164,7 @@
       "name": "x",
       "type": "linear",
       "domain": {
-        "data": "source_0",
+        "data": "scale_child_main",
         "fields": ["sum_yield_start", "sum_yield_end"]
       },
       "range": [0, {"signal": "child_width"}],
@@ -174,7 +174,7 @@
     {
       "name": "y",
       "type": "band",
-      "domain": {"data": "source_0", "field": "variety", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "variety", "sort": true},
       "range": {"step": {"signal": "y_step"}},
       "paddingInner": 0.1,
       "paddingOuter": 0.05
@@ -182,7 +182,7 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "site", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "site", "sort": true},
       "range": "category"
     }
   ],

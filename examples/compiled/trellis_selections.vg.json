@@ -534,7 +534,7 @@
     {
       "name": "x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "X"},
+      "domain": {"data": "scale_child_main", "field": "X"},
       "domainRaw": {"signal": "grid_X"},
       "range": [0, {"signal": "child_width"}],
       "zero": false,
@@ -543,7 +543,7 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Y"},
+      "domain": {"data": "scale_child_main", "field": "Y"},
       "domainRaw": {"signal": "grid_Y"},
       "range": [{"signal": "child_height"}, 0],
       "zero": false,

@@ -76,45 +76,6 @@
           "as": ["median_yield"]
         }
       ]
-    },
-    {
-      "name": "data_6",
-      "source": "source_0",
-      "transform": [
-        {
-          "type": "aggregate",
-          "groupby": ["variety", "year", "site"],
-          "ops": ["median"],
-          "fields": ["yield"],
-          "as": ["median_yield"]
-        }
-      ]
-    },
-    {
-      "name": "data_7",
-      "source": "source_0",
-      "transform": [
-        {
-          "type": "aggregate",
-          "groupby": ["variety", "year", "site"],
-          "ops": ["median"],
-          "fields": ["yield"],
-          "as": ["median_yield"]
-        }
-      ]
-    },
-    {
-      "name": "data_8",
-      "source": "source_0",
-      "transform": [
-        {
-          "type": "aggregate",
-          "groupby": ["variety", "year", "site"],
-          "ops": ["median"],
-          "fields": ["yield"],
-          "as": ["median_yield"]
-        }
-      ]
     }
   ],
   "signals": [
@@ -320,8 +281,14 @@
       "type": "linear",
       "domain": {
         "fields": [
-          {"data": "data_8", "field": "median_yield"},
-          {"data": "data_1", "field": "median_yield"}
+          {
+            "data": "scale_trellis_barley_child_layer_0_main",
+            "field": "median_yield"
+          },
+          {
+            "data": "scale_trellis_barley_child_layer_1_main",
+            "field": "median_yield"
+          }
         ]
       },
       "range": [0, {"signal": "trellis_barley_child_width"}],
@@ -332,7 +299,7 @@
       "name": "trellis_barley_y",
       "type": "point",
       "domain": {
-        "data": "source_0",
+        "data": "scale_trellis_barley_child_layer_0_raw",
         "field": "variety",
         "sort": {"field": "yield", "op": "median", "order": "descending"}
       },
@@ -342,7 +309,11 @@
     {
       "name": "trellis_barley_color",
       "type": "ordinal",
-      "domain": {"data": "data_8", "field": "year", "sort": true},
+      "domain": {
+        "data": "scale_trellis_barley_child_layer_0_main",
+        "field": "year",
+        "sort": true
+      },
       "range": "category"
     }
   ],

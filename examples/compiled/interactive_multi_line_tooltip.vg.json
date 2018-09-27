@@ -111,7 +111,7 @@
       "name": "layer_0_layer_1_marks",
       "type": "symbol",
       "style": ["point"],
-      "from": {"data": "data_2"},
+      "from": {"data": "layer_0_layer_1_main"},
       "encode": {
         "update": {
           "opacity": [
@@ -218,6 +218,7 @@
       "domain": {
         "fields": [
           {"data": "data_2", "field": "date"},
+          {"data": "layer_0_layer_1_main", "field": "date"},
           {"data": "data_0", "field": "date"},
           {"data": "data_1", "field": "date"}
         ]
@@ -230,6 +231,7 @@
       "domain": {
         "fields": [
           {"data": "data_2", "field": "price"},
+          {"data": "layer_0_layer_1_main", "field": "price"},
           {"data": "data_1", "field": "price"}
         ]
       },
@@ -243,6 +245,7 @@
       "domain": {
         "fields": [
           {"data": "data_2", "field": "symbol"},
+          {"data": "layer_0_layer_1_main", "field": "symbol"},
           {"data": "data_1", "field": "symbol"}
         ],
         "sort": true

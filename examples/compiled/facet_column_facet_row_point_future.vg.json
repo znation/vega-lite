@@ -212,7 +212,7 @@
     {
       "name": "x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Horsepower"},
+      "domain": {"data": "scale_child_child_main", "field": "Horsepower"},
       "range": [0, {"signal": "child_child_width"}],
       "nice": true,
       "zero": true
@@ -220,7 +220,7 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Acceleration"},
+      "domain": {"data": "scale_child_child_main", "field": "Acceleration"},
       "range": [{"signal": "child_child_height"}, 0],
       "nice": true,
       "zero": true

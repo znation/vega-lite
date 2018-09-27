@@ -192,14 +192,18 @@
     {
       "name": "x",
       "type": "point",
-      "domain": {"data": "source_0", "field": "quarter_date", "sort": true},
+      "domain": {
+        "data": "scale_child_main",
+        "field": "quarter_date",
+        "sort": true
+      },
       "range": {"step": {"signal": "x_step"}},
       "padding": 0.5
     },
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "mean_price"},
+      "domain": {"data": "scale_child_main", "field": "mean_price"},
       "range": [{"signal": "child_height"}, 0],
       "nice": true,
       "zero": true
@@ -207,7 +211,7 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "symbol", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "symbol", "sort": true},
       "range": "category"
     }
   ],

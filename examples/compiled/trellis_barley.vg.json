@@ -34,19 +34,6 @@
           "as": ["median_yield"]
         }
       ]
-    },
-    {
-      "name": "data_2",
-      "source": "source_0",
-      "transform": [
-        {
-          "type": "aggregate",
-          "groupby": ["variety", "year", "site"],
-          "ops": ["median"],
-          "fields": ["yield"],
-          "as": ["median_yield"]
-        }
-      ]
     }
   ],
   "signals": [
@@ -214,7 +201,10 @@
     {
       "name": "trellis_barley_x",
       "type": "linear",
-      "domain": {"data": "data_2", "field": "median_yield"},
+      "domain": {
+        "data": "scale_trellis_barley_child_main",
+        "field": "median_yield"
+      },
       "range": [0, {"signal": "trellis_barley_child_width"}],
       "zero": false,
       "nice": true
@@ -223,7 +213,7 @@
       "name": "trellis_barley_y",
       "type": "point",
       "domain": {
-        "data": "source_0",
+        "data": "scale_trellis_barley_child_raw",
         "field": "variety",
         "sort": {"field": "yield", "op": "median", "order": "descending"}
       },
@@ -233,7 +223,11 @@
     {
       "name": "trellis_barley_color",
       "type": "ordinal",
-      "domain": {"data": "data_2", "field": "year", "sort": true},
+      "domain": {
+        "data": "scale_trellis_barley_child_main",
+        "field": "year",
+        "sort": true
+      },
       "range": "category"
     }
   ],

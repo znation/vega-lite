@@ -57,7 +57,7 @@
       "name": "layer_1_marks",
       "type": "symbol",
       "style": ["point"],
-      "from": {"data": "source_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "opacity": {"value": 0.7},
@@ -81,13 +81,23 @@
     {
       "name": "x",
       "type": "time",
-      "domain": {"data": "source_0", "field": "date"},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "date"},
+          {"data": "layer_1_main", "field": "date"}
+        ]
+      },
       "range": [0, {"signal": "width"}]
     },
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "price"},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "price"},
+          {"data": "layer_1_main", "field": "price"}
+        ]
+      },
       "range": [{"signal": "height"}, 0],
       "nice": true,
       "zero": true
@@ -95,7 +105,13 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "symbol", "sort": true},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "symbol"},
+          {"data": "layer_1_main", "field": "symbol"}
+        ],
+        "sort": true
+      },
       "range": "category"
     }
   ],

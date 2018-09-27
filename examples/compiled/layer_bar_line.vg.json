@@ -64,7 +64,7 @@
       "type": "line",
       "style": ["line"],
       "sort": {"field": "datum[\"a\"]", "order": "descending"},
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "stroke": {"value": "red"},
@@ -82,7 +82,13 @@
     {
       "name": "x",
       "type": "band",
-      "domain": {"data": "data_0", "field": "a", "sort": true},
+      "domain": {
+        "fields": [
+          {"data": "data_0", "field": "a"},
+          {"data": "layer_1_main", "field": "a"}
+        ],
+        "sort": true
+      },
       "range": {"step": {"signal": "x_step"}},
       "paddingInner": 0.1,
       "paddingOuter": 0.05
@@ -90,7 +96,12 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "data_0", "field": "b"},
+      "domain": {
+        "fields": [
+          {"data": "data_0", "field": "b"},
+          {"data": "layer_1_main", "field": "b"}
+        ]
+      },
       "range": [{"signal": "height"}, 0],
       "nice": true,
       "zero": true

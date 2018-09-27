@@ -156,7 +156,7 @@
       "name": "layer_2_marks",
       "type": "symbol",
       "style": ["point"],
-      "from": {"data": "data_1"},
+      "from": {"data": "layer_2_main"},
       "encode": {
         "update": {
           "opacity": {"value": 0.7},
@@ -191,7 +191,8 @@
         "fields": [
           {"data": "data_0", "field": "year_start"},
           {"data": "data_0", "field": "year_end"},
-          {"data": "data_1", "field": "year_year"}
+          {"data": "data_1", "field": "year_year"},
+          {"data": "layer_2_main", "field": "year_year"}
         ]
       },
       "range": [0, {"signal": "width"}]
@@ -205,7 +206,12 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "data_1", "field": "population"},
+      "domain": {
+        "fields": [
+          {"data": "data_1", "field": "population"},
+          {"data": "layer_2_main", "field": "population"}
+        ]
+      },
       "range": [{"signal": "height"}, 0],
       "nice": true,
       "zero": true

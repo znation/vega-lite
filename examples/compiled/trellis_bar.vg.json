@@ -171,7 +171,7 @@
     {
       "name": "x",
       "type": "band",
-      "domain": {"data": "source_0", "field": "age", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "age", "sort": true},
       "range": {"step": {"signal": "x_step"}},
       "paddingInner": 0.1,
       "paddingOuter": 0.05
@@ -180,7 +180,7 @@
       "name": "y",
       "type": "linear",
       "domain": {
-        "data": "source_0",
+        "data": "scale_child_main",
         "fields": ["sum_people_start", "sum_people_end"]
       },
       "range": [{"signal": "child_height"}, 0],
@@ -190,7 +190,7 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "gender", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "gender", "sort": true},
       "range": ["#EA98D2", "#659CCA"]
     }
   ],

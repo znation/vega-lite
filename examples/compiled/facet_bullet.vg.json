@@ -157,7 +157,7 @@
           "name": "child_layer_1_marks",
           "type": "rect",
           "style": ["bar"],
-          "from": {"data": "facet"},
+          "from": {"data": "child_layer_1_main"},
           "encode": {
             "update": {
               "fill": [
@@ -181,7 +181,7 @@
           "name": "child_layer_2_marks",
           "type": "rect",
           "style": ["bar"],
-          "from": {"data": "facet"},
+          "from": {"data": "child_layer_2_main"},
           "encode": {
             "update": {
               "fill": [
@@ -205,7 +205,7 @@
           "name": "child_layer_3_marks",
           "type": "rect",
           "style": ["bar"],
-          "from": {"data": "facet"},
+          "from": {"data": "child_layer_3_main"},
           "encode": {
             "update": {
               "fill": [
@@ -229,7 +229,7 @@
           "name": "child_layer_4_marks",
           "type": "rect",
           "style": ["bar"],
-          "from": {"data": "facet"},
+          "from": {"data": "child_layer_4_main"},
           "encode": {
             "update": {
               "fill": [
@@ -253,7 +253,7 @@
           "name": "child_layer_5_marks",
           "type": "rect",
           "style": ["tick"],
-          "from": {"data": "facet"},
+          "from": {"data": "child_layer_5_main"},
           "encode": {
             "update": {
               "opacity": {"value": 0.7},
@@ -280,14 +280,13 @@
           "name": "child_x",
           "type": "linear",
           "domain": {
-            "data": "facet",
             "fields": [
-              "ranges\\.2",
-              "ranges\\.1",
-              "ranges\\.0",
-              "measures\\.1",
-              "measures\\.0",
-              "markers\\.0"
+              {"data": "facet", "field": "ranges\\.2"},
+              {"data": "child_layer_1_main", "field": "ranges\\.1"},
+              {"data": "child_layer_2_main", "field": "ranges\\.0"},
+              {"data": "child_layer_3_main", "field": "measures\\.1"},
+              {"data": "child_layer_4_main", "field": "measures\\.0"},
+              {"data": "child_layer_5_main", "field": "markers\\.0"}
             ]
           },
           "range": [0, {"signal": "child_width"}],

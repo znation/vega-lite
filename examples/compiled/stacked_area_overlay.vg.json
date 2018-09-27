@@ -98,7 +98,7 @@
       "from": {
         "facet": {
           "name": "faceted_path_layer_1_main",
-          "data": "source_0",
+          "data": "layer_1_main",
           "groupby": ["gender"]
         }
       },
@@ -137,7 +137,13 @@
     {
       "name": "x",
       "type": "point",
-      "domain": {"data": "source_0", "field": "age", "sort": true},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "age"},
+          {"data": "layer_1_main", "field": "age"}
+        ],
+        "sort": true
+      },
       "range": {"step": {"signal": "x_step"}},
       "padding": 0.5
     },
@@ -145,8 +151,12 @@
       "name": "y",
       "type": "linear",
       "domain": {
-        "data": "source_0",
-        "fields": ["sum_people_start", "sum_people_end"]
+        "fields": [
+          {"data": "source_0", "field": "sum_people_start"},
+          {"data": "source_0", "field": "sum_people_end"},
+          {"data": "layer_1_main", "field": "sum_people_start"},
+          {"data": "layer_1_main", "field": "sum_people_end"}
+        ]
       },
       "range": [{"signal": "height"}, 0],
       "nice": true,
@@ -155,7 +165,13 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "gender", "sort": true},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "gender"},
+          {"data": "layer_1_main", "field": "gender"}
+        ],
+        "sort": true
+      },
       "range": ["#EA98D2", "#659CCA"]
     }
   ],

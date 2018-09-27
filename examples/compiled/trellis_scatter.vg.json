@@ -170,7 +170,7 @@
     {
       "name": "x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Worldwide_Gross"},
+      "domain": {"data": "scale_child_main", "field": "Worldwide_Gross"},
       "range": [0, {"signal": "child_width"}],
       "nice": true,
       "zero": true
@@ -178,7 +178,7 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "US_DVD_Sales"},
+      "domain": {"data": "scale_child_main", "field": "US_DVD_Sales"},
       "range": [{"signal": "child_height"}, 0],
       "nice": true,
       "zero": true

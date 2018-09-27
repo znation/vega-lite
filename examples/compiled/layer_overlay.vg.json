@@ -69,7 +69,7 @@
       "name": "layer_0_layer_1_marks",
       "type": "symbol",
       "style": ["point"],
-      "from": {"data": "data_1"},
+      "from": {"data": "layer_0_layer_1_main"},
       "encode": {
         "update": {
           "opacity": {"value": 1},
@@ -112,7 +112,7 @@
       "name": "layer_1_layer_1_marks",
       "type": "symbol",
       "style": ["point"],
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_1_layer_1_main"},
       "encode": {
         "update": {
           "opacity": {"value": 1},
@@ -139,7 +139,9 @@
       "domain": {
         "fields": [
           {"data": "data_1", "field": "Cylinders"},
-          {"data": "data_0", "field": "Cylinders"}
+          {"data": "layer_0_layer_1_main", "field": "Cylinders"},
+          {"data": "data_0", "field": "Cylinders"},
+          {"data": "layer_1_layer_1_main", "field": "Cylinders"}
         ],
         "sort": true
       },
@@ -152,7 +154,9 @@
       "domain": {
         "fields": [
           {"data": "data_1", "field": "max_Horsepower"},
-          {"data": "data_0", "field": "min_Horsepower"}
+          {"data": "layer_0_layer_1_main", "field": "max_Horsepower"},
+          {"data": "data_0", "field": "min_Horsepower"},
+          {"data": "layer_1_layer_1_main", "field": "min_Horsepower"}
         ]
       },
       "range": [{"signal": "height"}, 0],

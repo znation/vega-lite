@@ -140,7 +140,7 @@
       "name": "layer_1_layer_1_marks",
       "type": "text",
       "style": ["text"],
-      "from": {"data": "data_2"},
+      "from": {"data": "layer_1_layer_1_main"},
       "encode": {
         "update": {
           "align": {"value": "right"},
@@ -186,7 +186,8 @@
           {"data": "data_0", "field": "Value"},
           {"data": "data_1", "field": "baseline"},
           {"data": "data_1", "field": "Value"},
-          {"data": "data_2", "field": "ThresholdValue"}
+          {"data": "data_2", "field": "ThresholdValue"},
+          {"data": "layer_1_layer_1_main", "field": "ThresholdValue"}
         ]
       },
       "range": [{"signal": "height"}, 0],

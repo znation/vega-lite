@@ -157,7 +157,7 @@
     {
       "name": "x",
       "type": "band",
-      "domain": {"data": "data_0", "field": "country", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "country", "sort": true},
       "range": {"step": {"signal": "x_step"}},
       "paddingInner": 0.1,
       "paddingOuter": 0.05
@@ -165,7 +165,7 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "data_0", "field": "value"},
+      "domain": {"data": "scale_child_main", "field": "value"},
       "range": [{"signal": "child_height"}, 0],
       "nice": true,
       "zero": true
@@ -173,7 +173,7 @@
     {
       "name": "color",
       "type": "ordinal",
-      "domain": {"data": "data_0", "field": "country", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "country", "sort": true},
       "range": "category"
     }
   ],

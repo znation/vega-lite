@@ -69,7 +69,7 @@
       "type": "line",
       "style": ["line"],
       "sort": {"field": "datum[\"year_Year\"]", "order": "descending"},
-      "from": {"data": "source_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "stroke": {"value": "red"},
@@ -89,15 +89,22 @@
     {
       "name": "x",
       "type": "time",
-      "domain": {"data": "source_0", "field": "year_Year"},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "year_Year"},
+          {"data": "layer_1_main", "field": "year_Year"}
+        ]
+      },
       "range": [0, {"signal": "width"}]
     },
     {
       "name": "y",
       "type": "linear",
       "domain": {
-        "data": "source_0",
-        "fields": ["Miles_per_Gallon", "Average_MPG"]
+        "fields": [
+          {"data": "source_0", "field": "Miles_per_Gallon"},
+          {"data": "layer_1_main", "field": "Average_MPG"}
+        ]
       },
       "range": [{"signal": "height"}, 0],
       "nice": true,

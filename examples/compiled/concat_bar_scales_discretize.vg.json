@@ -130,7 +130,7 @@
           "name": "concat_1_marks",
           "type": "symbol",
           "style": ["circle"],
-          "from": {"data": "data_0"},
+          "from": {"data": "concat_1_main"},
           "encode": {
             "update": {
               "opacity": {"value": 0.7},
@@ -195,7 +195,7 @@
           "name": "concat_2_marks",
           "type": "symbol",
           "style": ["circle"],
-          "from": {"data": "data_0"},
+          "from": {"data": "concat_2_main"},
           "encode": {
             "update": {
               "opacity": {"value": 0.7},
@@ -270,26 +270,26 @@
     {
       "name": "concat_1_y",
       "type": "point",
-      "domain": {"data": "data_0", "field": "b"},
+      "domain": {"data": "concat_1_main", "field": "b"},
       "range": {"step": {"signal": "concat_1_y_step"}},
       "padding": 0.5
     },
     {
       "name": "concat_1_color",
       "type": "quantile",
-      "domain": {"data": "data_0", "field": "b"},
+      "domain": {"data": "concat_1_main", "field": "b"},
       "range": {"scheme": "magma"}
     },
     {
       "name": "concat_1_size",
       "type": "quantile",
-      "domain": {"data": "data_0", "field": "b"},
+      "domain": {"data": "concat_1_main", "field": "b"},
       "range": [80, 160, 240, 320, 400]
     },
     {
       "name": "concat_2_y",
       "type": "point",
-      "domain": {"data": "data_0", "field": "b"},
+      "domain": {"data": "concat_2_main", "field": "b"},
       "range": {"step": {"signal": "concat_2_y_step"}},
       "padding": 0.5
     },

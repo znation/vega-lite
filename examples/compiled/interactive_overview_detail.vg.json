@@ -320,7 +320,7 @@
           "type": "area",
           "style": ["area"],
           "sort": {"field": "datum[\"date\"]", "order": "descending"},
-          "from": {"data": "source_0"},
+          "from": {"data": "concat_1_main"},
           "encode": {
             "update": {
               "orient": {"value": "vertical"},
@@ -437,13 +437,13 @@
     {
       "name": "concat_1_x",
       "type": "time",
-      "domain": {"data": "source_0", "field": "date"},
+      "domain": {"data": "concat_1_main", "field": "date"},
       "range": [0, {"signal": "width"}]
     },
     {
       "name": "concat_1_y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "price"},
+      "domain": {"data": "concat_1_main", "field": "price"},
       "range": [{"signal": "concat_1_height"}, 0],
       "nice": true,
       "zero": true

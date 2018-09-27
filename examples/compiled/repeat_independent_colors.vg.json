@@ -134,7 +134,7 @@
           "name": "child_Cylinders_marks",
           "type": "symbol",
           "style": ["point"],
-          "from": {"data": "source_0"},
+          "from": {"data": "child_Cylinders_main"},
           "encode": {
             "update": {
               "opacity": {"value": 0.7},
@@ -250,7 +250,7 @@
     {
       "name": "child_Cylinders_x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Horsepower"},
+      "domain": {"data": "child_Cylinders_main", "field": "Horsepower"},
       "range": [0, {"signal": "width"}],
       "nice": true,
       "zero": true
@@ -258,7 +258,7 @@
     {
       "name": "child_Cylinders_y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Miles_per_Gallon"},
+      "domain": {"data": "child_Cylinders_main", "field": "Miles_per_Gallon"},
       "range": [{"signal": "height"}, 0],
       "nice": true,
       "zero": true
@@ -266,7 +266,11 @@
     {
       "name": "child_Cylinders_color",
       "type": "ordinal",
-      "domain": {"data": "source_0", "field": "Cylinders", "sort": true},
+      "domain": {
+        "data": "child_Cylinders_main",
+        "field": "Cylinders",
+        "sort": true
+      },
       "range": "category"
     }
   ],

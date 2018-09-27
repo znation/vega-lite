@@ -117,7 +117,7 @@
       "name": "layer_1_marks",
       "type": "rule",
       "style": ["rule"],
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "opacity": {"value": 1},
@@ -142,7 +142,7 @@
       "name": "layer_2_marks",
       "type": "text",
       "style": ["text"],
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_2_main"},
       "encode": {
         "update": {
           "dy": {"value": -8},
@@ -167,7 +167,7 @@
       "name": "layer_3_marks",
       "type": "text",
       "style": ["text"],
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_3_main"},
       "encode": {
         "update": {
           "baseline": {"value": "top"},
@@ -193,7 +193,7 @@
       "name": "layer_4_marks",
       "type": "text",
       "style": ["text"],
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_4_main"},
       "encode": {
         "update": {
           "baseline": {"value": "middle"},
@@ -224,7 +224,16 @@
     {
       "name": "x",
       "type": "band",
-      "domain": {"data": "data_0", "fields": ["label", "lead"]},
+      "domain": {
+        "fields": [
+          {"data": "data_0", "field": "label"},
+          {"data": "layer_1_main", "field": "label"},
+          {"data": "layer_1_main", "field": "lead"},
+          {"data": "layer_2_main", "field": "label"},
+          {"data": "layer_3_main", "field": "label"},
+          {"data": "layer_4_main", "field": "label"}
+        ]
+      },
       "range": [0, {"signal": "width"}],
       "paddingInner": 0.1,
       "paddingOuter": 0.05
@@ -233,8 +242,14 @@
       "name": "y",
       "type": "linear",
       "domain": {
-        "data": "data_0",
-        "fields": ["previous_sum", "sum", "sum_inc", "sum_dec", "center"]
+        "fields": [
+          {"data": "data_0", "field": "previous_sum"},
+          {"data": "data_0", "field": "sum"},
+          {"data": "layer_1_main", "field": "sum"},
+          {"data": "layer_2_main", "field": "sum_inc"},
+          {"data": "layer_3_main", "field": "sum_dec"},
+          {"data": "layer_4_main", "field": "center"}
+        ]
       },
       "range": [{"signal": "height"}, 0],
       "nice": true,

@@ -47,7 +47,7 @@
       "transform": [
         {
           "type": "lookup",
-          "from": "source_1",
+          "from": "child_engineers_lookup_0",
           "key": "id",
           "fields": ["id"],
           "as": ["geo"]
@@ -65,7 +65,7 @@
       "transform": [
         {
           "type": "lookup",
-          "from": "source_1",
+          "from": "child_hurricanes_lookup_0",
           "key": "id",
           "fields": ["id"],
           "as": ["geo"]

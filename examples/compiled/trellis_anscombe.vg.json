@@ -158,7 +158,7 @@
     {
       "name": "x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "X"},
+      "domain": {"data": "scale_child_main", "field": "X"},
       "range": [0, {"signal": "child_width"}],
       "zero": false,
       "nice": true
@@ -166,7 +166,7 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Y"},
+      "domain": {"data": "scale_child_main", "field": "Y"},
       "range": [{"signal": "child_height"}, 0],
       "zero": false,
       "nice": true

@@ -245,7 +245,7 @@
           "type": "symbol",
           "clip": true,
           "style": ["point"],
-          "from": {"data": "source_0"},
+          "from": {"data": "concat_1_main"},
           "encode": {
             "update": {
               "opacity": {"value": 0.7},
@@ -325,7 +325,12 @@
     {
       "name": "x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Horsepower"},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "Horsepower"},
+          {"data": "concat_1_main", "field": "Horsepower"}
+        ]
+      },
       "domainRaw": {"signal": "region_Horsepower"},
       "range": [0, {"signal": "width"}],
       "nice": true,
@@ -343,7 +348,7 @@
     {
       "name": "concat_1_y",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "Acceleration"},
+      "domain": {"data": "concat_1_main", "field": "Acceleration"},
       "range": [{"signal": "concat_1_height"}, 0],
       "nice": true,
       "zero": true

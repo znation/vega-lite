@@ -256,7 +256,7 @@
       "name": "layer_1_marks",
       "type": "rect",
       "style": ["bar"],
-      "from": {"data": "data_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "fill": [
@@ -282,14 +282,26 @@
     {
       "name": "x",
       "type": "time",
-      "domain": {"data": "data_0", "field": "date"},
+      "domain": {
+        "fields": [
+          {"data": "data_0", "field": "date"},
+          {"data": "layer_1_main", "field": "date"}
+        ]
+      },
       "range": [0, {"signal": "width"}],
       "padding": 5
     },
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "data_0", "fields": ["low", "high", "open", "close"]},
+      "domain": {
+        "fields": [
+          {"data": "data_0", "field": "low"},
+          {"data": "data_0", "field": "high"},
+          {"data": "layer_1_main", "field": "open"},
+          {"data": "layer_1_main", "field": "close"}
+        ]
+      },
       "range": [{"signal": "height"}, 0],
       "zero": false,
       "nice": true

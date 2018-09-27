@@ -80,7 +80,7 @@
       "name": "layer_1_marks",
       "type": "symbol",
       "style": ["point"],
-      "from": {"data": "source_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "opacity": {"value": 1},
@@ -105,7 +105,12 @@
     {
       "name": "x",
       "type": "linear",
-      "domain": {"data": "source_0", "field": "life_expect"},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "life_expect"},
+          {"data": "layer_1_main", "field": "life_expect"}
+        ]
+      },
       "range": [0, {"signal": "width"}],
       "nice": true,
       "zero": true
@@ -113,7 +118,13 @@
     {
       "name": "y",
       "type": "point",
-      "domain": {"data": "source_0", "field": "country", "sort": true},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "country"},
+          {"data": "layer_1_main", "field": "country"}
+        ],
+        "sort": true
+      },
       "range": {"step": {"signal": "y_step"}},
       "padding": 0.5
     },

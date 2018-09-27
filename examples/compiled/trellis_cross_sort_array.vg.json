@@ -394,8 +394,8 @@
       "type": "linear",
       "domain": {
         "fields": [
-          {"data": "data_4", "field": "x"},
-          {"data": "data_2", "field": "median_median_x_by_a"}
+          {"data": "scale_child_layer_0_main", "field": "x"},
+          {"data": "scale_child_layer_1_main", "field": "median_median_x_by_a"}
         ]
       },
       "range": [0, {"signal": "child_width"}],
@@ -407,8 +407,8 @@
       "type": "linear",
       "domain": {
         "fields": [
-          {"data": "data_4", "field": "y"},
-          {"data": "data_3", "field": "median_median_y_by_b"}
+          {"data": "scale_child_layer_0_main", "field": "y"},
+          {"data": "scale_child_layer_2_main", "field": "median_median_y_by_b"}
         ]
       },
       "range": [{"signal": "child_height"}, 0],

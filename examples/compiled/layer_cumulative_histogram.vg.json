@@ -73,7 +73,7 @@
       "name": "layer_1_marks",
       "type": "rect",
       "style": ["bar"],
-      "from": {"data": "source_0"},
+      "from": {"data": "layer_1_main"},
       "encode": {
         "update": {
           "opacity": {"value": 0.5},
@@ -100,8 +100,12 @@
       "name": "x",
       "type": "linear",
       "domain": {
-        "data": "source_0",
-        "fields": ["bin_IMDB_Rating", "bin_IMDB_Rating_end"]
+        "fields": [
+          {"data": "source_0", "field": "bin_IMDB_Rating"},
+          {"data": "source_0", "field": "bin_IMDB_Rating_end"},
+          {"data": "layer_1_main", "field": "bin_IMDB_Rating"},
+          {"data": "layer_1_main", "field": "bin_IMDB_Rating_end"}
+        ]
       },
       "range": [0, {"signal": "width"}],
       "zero": false,
@@ -111,7 +115,12 @@
     {
       "name": "y",
       "type": "linear",
-      "domain": {"data": "source_0", "fields": ["cumulative_count", "count"]},
+      "domain": {
+        "fields": [
+          {"data": "source_0", "field": "cumulative_count"},
+          {"data": "layer_1_main", "field": "count"}
+        ]
+      },
       "range": [{"signal": "height"}, 0],
       "nice": true,
       "zero": true

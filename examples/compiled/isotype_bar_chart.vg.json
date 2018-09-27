@@ -118,14 +118,14 @@
     {
       "name": "x",
       "type": "point",
-      "domain": {"data": "source_0", "field": "col", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "col", "sort": true},
       "range": [0, {"signal": "child_width"}],
       "padding": 0.5
     },
     {
       "name": "y",
       "type": "point",
-      "domain": {"data": "source_0", "field": "animal", "sort": true},
+      "domain": {"data": "scale_child_main", "field": "animal", "sort": true},
       "range": [0, {"signal": "child_height"}],
       "padding": 0.5
     },
