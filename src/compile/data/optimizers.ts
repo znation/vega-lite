@@ -1,5 +1,5 @@
 import {fieldIntersection, keys} from '../../util';
-import {DataFlowNode, isTransformNode, OutputNode, TransformNode} from './dataflow';
+import {DataFlowNode, OutputNode} from './dataflow';
 import {FacetNode} from './facet';
 import {ParseNode} from './formatparse';
 import {SourceNode} from './source';
@@ -84,7 +84,7 @@ function mergeBucket(parent: DataFlowNode, nodes: DataFlowNode[]) {
  */
 export function mergeIdenticalTransforms(node: DataFlowNode): boolean {
   let flag = false;
-  const transforms = node.children.filter((x): x is TransformNode => isTransformNode(x));
+  const transforms = node.children;
   const hashes = transforms.map(x => x.hash());
   const buckets: {hash?: DataFlowNode[]} = {};
   for (let i = 0; i < hashes.length; i++) {
