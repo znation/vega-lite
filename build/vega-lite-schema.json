@@ -4287,7 +4287,6 @@
     },
     "FacetSpec": {
       "additionalProperties": false,
-      "description": "Base interface for a facet specification.",
       "properties": {
         "align": {
           "anyOf": [
@@ -9850,8 +9849,7 @@
         {
           "$ref": "#/definitions/TopLevelHConcatSpec"
         }
-      ],
-      "description": "A Vega-Lite top-level specification.\nThis is the root class for all Vega-Lite specifications.\n(The json schema is generated from this type.)"
+      ]
     },
     "TopoDataFormat": {
       "additionalProperties": false,
