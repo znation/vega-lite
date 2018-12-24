@@ -43,6 +43,7 @@ export interface DataMixins {
 }
 
 // TODO(https://github.com/vega/vega-lite/issues/2503): Make this generic so we can support some form of top-down sizing.
+
 /**
  * Common properties for specifying width and height of unit and layer specifications.
  */
