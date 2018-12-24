@@ -5,6 +5,11 @@ import {Resolve} from '../resolve';
 import {BaseSpec, LayoutSizeMixins} from './base';
 import {CompositeUnitSpec, GenericUnitSpec, NormalizedUnitSpec} from './unit';
 
+export {normalizeTopLevelSpec as normalize} from '../normalize';
+export {BaseSpec, DataMixins, LayoutSizeMixins} from './base';
+export {TopLevel} from './toplevel';
+export {CompositeUnitSpec, FacetedCompositeUnitSpec, GenericUnitSpec, isUnitSpec, NormalizedUnitSpec} from './unit';
+
 /**
  * Base interface for a layer specification.
  */
