@@ -1,7 +1,7 @@
 import {ScaleChannel} from '../../channel';
 import {Scale, ScaleType} from '../../scale';
 import {Omit} from '../../util';
-import {VgNonUnionDomain, VgRange, VgScale} from '../../vega.schema';
+import {VgNonUnionDomain, VgScale} from '../../vega.schema';
 import {SignalRefComponent} from '../signal';
 import {Explicit, Split} from '../split';
 
@@ -11,9 +11,7 @@ import {Explicit, Split} from '../split';
  */
 // TODO: also exclude domainRaw and property implement the right scaleComponent for selection domain
 
-export type ScaleComponentProps = Omit<VgScale, 'domain' | 'range'> & {
-  range: VgRange<SignalRefComponent>;
-};
+export type ScaleComponentProps = Omit<VgScale<SignalRefComponent>, 'domain'>;
 
 export class ScaleComponent extends Split<ScaleComponentProps> {
   public merged = false;

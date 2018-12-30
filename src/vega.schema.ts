@@ -69,8 +69,8 @@ export interface VgValueRef {
 }
 
 // TODO: add vg prefix
-export interface DataRefUnionDomain {
-  fields: (any[] | VgDataRef | SignalRef)[];
+export interface DataRefUnionDomain<SR = SignalRef> {
+  fields: (any[] | VgDataRef | SR)[];
   sort?: VgUnionSortField;
 }
 
@@ -96,7 +96,7 @@ export interface VgRangeStep {
   step: number | SignalRef;
 }
 // Domains that are not a union of domains
-export type VgNonUnionDomain = any[] | VgDataRef | SignalRef;
+export type VgNonUnionDomain<SR = SignalRef> = any[] | VgDataRef | SR;
 export type VgDomain = VgNonUnionDomain | DataRefUnionDomain | VgFieldRefUnionDomain;
 
 export type VgMarkGroup = any;
@@ -179,12 +179,12 @@ export interface VgProjection {
 }
 
 // TODO: Eventually migrate to Vega-typings and make Vega typings take generic SR that can allow us to replace SignalRef with SignalComponent
-export interface VgScale {
+export interface VgScale<SR = SignalRef> {
   name: string;
   type: ScaleType;
   domain: VgDomain;
-  domainRaw?: SignalRef;
-  range: VgRange<SignalRef>;
+  domainRaw?: SignalRef; // TODO: change this to SR
+  range: VgRange<SR>;
 
   clamp?: boolean;
   base?: number;
