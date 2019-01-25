@@ -5971,6 +5971,14 @@
           ],
           "type": "string"
         },
+        "formatType": {
+          "description": "A type of axis format to be forced to.",
+          "enum": [
+            "number",
+            "time"
+          ],
+          "type": "string"
+        },
         "labelAngle": {
           "description": "The rotation angle of the header labels.\n\n__Default value:__ `0` for column header, `-90` for row header.",
           "maximum": 360,
@@ -6736,6 +6744,14 @@
         },
         "formatType": {
           "description": "The format type for labels (number or time).",
+          "enum": [
+            "number",
+            "time"
+          ],
+          "type": "string"
+        },
+        "formatType": {
+          "description": "A type of axis format to be forced to.",
           "enum": [
             "number",
             "time"
