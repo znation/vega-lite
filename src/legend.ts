@@ -30,6 +30,11 @@ export type LegendConfig = LegendMixins &
     SymbolShape
   > & {
     /**
+     * The axis title. Set to `null` to disable titles.
+     */
+    title?: null;
+
+    /**
      * Max legend length for a vertical gradient when `config.legend.gradientLength` is undefined.
      *
      * __Default value:__ `200`
