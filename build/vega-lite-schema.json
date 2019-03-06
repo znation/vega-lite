@@ -410,7 +410,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of guide formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
@@ -2791,7 +2791,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
@@ -3208,7 +3208,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
@@ -4949,7 +4949,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
@@ -5996,7 +5996,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of guide formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
@@ -6775,7 +6775,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of guide formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
@@ -10790,7 +10790,7 @@
           "type": "string"
         },
         "formatType": {
-          "description": "A type of formatting to be forced to.",
+          "description": "The type of the `format` property.",
           "enum": [
             "number",
             "time"
