@@ -85,6 +85,19 @@
       ],
       "type": "string"
     },
+    "AlignValue": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Align"
+        },
+        {
+          "$ref": "#/definitions/AlignValueRef"
+        }
+      ]
+    },
+    "AlignValueRef": {
+      "$ref": "#/definitions/ScaledValueRef<Align>"
+    },
     "AnchorValue": {
       "anyOf": [
         {
@@ -1505,6 +1518,59 @@
         }
       },
       "type": "object"
+    },
+    "BaseValueRef<Align>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/SignalRef"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "value": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/Align"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "$ref": "#/definitions/Field"
+            }
+          },
+          "required": [
+            "field"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "range": {
+              "type": [
+                "number",
+                "boolean"
+              ]
+            }
+          },
+          "required": [
+            "range"
+          ],
+          "type": "object"
+        }
+      ]
     },
     "BaseValueRef<TitleAnchor>": {
       "anyOf": [
@@ -6047,6 +6113,14 @@
           ],
           "type": "string"
         },
+        "labelAlign": {
+          "$ref": "#/definitions/AlignValue",
+          "description": "Horizontal text alignment of header labels."
+        },
+        "labelAnchor": {
+          "$ref": "#/definitions/TitleAnchor",
+          "description": "The anchor position for placing the labels. One of `\"start\"`, `\"middle\"`, or `\"end\"`. For example, with a label orientation of top these anchor positions map to a left-, center-, or right-aligned label."
+        },
         "labelAngle": {
           "description": "The rotation angle of the header labels.\n\n__Default value:__ `0` for column header, `-90` for row header.",
           "maximum": 360,
@@ -6069,6 +6143,10 @@
         "labelLimit": {
           "description": "The maximum length of the header label in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.\n\n__Default value:__ `0`, indicating no limit",
           "type": "number"
+        },
+        "labelOrient": {
+          "$ref": "#/definitions/Orient",
+          "description": "The orientation of the header label. One of `\"top\"`, `\"bottom\"`, `\"left\"` or `\"right\"`."
         },
         "labelPadding": {
           "description": "The padding, in pixel, between facet header's label and the plot.\n\n__Default value:__ `10`",
@@ -6081,6 +6159,10 @@
             "null"
           ]
         },
+        "titleAlign": {
+          "$ref": "#/definitions/AlignValue",
+          "description": "Horizontal text alignment of header titles."
+        },
         "titleAnchor": {
           "$ref": "#/definitions/TitleAnchor",
           "description": "The anchor position for placing the title. One of `\"start\"`, `\"middle\"`, or `\"end\"`. For example, with an orientation of top these anchor positions map to a left-, center-, or right-aligned title."
@@ -6116,6 +6198,10 @@
           "description": "The maximum length of the header title in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.\n\n__Default value:__ `0`, indicating no limit",
           "type": "number"
         },
+        "titleOrient": {
+          "$ref": "#/definitions/Orient",
+          "description": "The orientation of the header title. One of `\"top\"`, `\"bottom\"`, `\"left\"` or `\"right\"`."
+        },
         "titlePadding": {
           "description": "The padding, in pixel, between facet header's title and the label.\n\n__Default value:__ `10`",
           "type": "number"
@@ -6126,6 +6212,14 @@
     "HeaderConfig": {
       "additionalProperties": false,
       "properties": {
+        "labelAlign": {
+          "$ref": "#/definitions/AlignValue",
+          "description": "Horizontal text alignment of header labels."
+        },
+        "labelAnchor": {
+          "$ref": "#/definitions/TitleAnchor",
+          "description": "The anchor position for placing the labels. One of `\"start\"`, `\"middle\"`, or `\"end\"`. For example, with a label orientation of top these anchor positions map to a left-, center-, or right-aligned label."
+        },
         "labelAngle": {
           "description": "The rotation angle of the header labels.\n\n__Default value:__ `0` for column header, `-90` for row header.",
           "maximum": 360,
@@ -6149,9 +6243,17 @@
           "description": "The maximum length of the header label in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.\n\n__Default value:__ `0`, indicating no limit",
           "type": "number"
         },
+        "labelOrient": {
+          "$ref": "#/definitions/Orient",
+          "description": "The orientation of the header label. One of `\"top\"`, `\"bottom\"`, `\"left\"` or `\"right\"`."
+        },
         "labelPadding": {
           "description": "The padding, in pixel, between facet header's label and the plot.\n\n__Default value:__ `10`",
           "type": "number"
+        },
+        "titleAlign": {
+          "$ref": "#/definitions/AlignValue",
+          "description": "Horizontal text alignment of header titles."
         },
         "titleAnchor": {
           "$ref": "#/definitions/TitleAnchor",
@@ -6187,6 +6289,10 @@
         "titleLimit": {
           "description": "The maximum length of the header title in pixels. The text value will be automatically truncated if the rendered size exceeds the limit.\n\n__Default value:__ `0`, indicating no limit",
           "type": "number"
+        },
+        "titleOrient": {
+          "$ref": "#/definitions/Orient",
+          "description": "The orientation of the header title. One of `\"top\"`, `\"bottom\"`, `\"left\"` or `\"right\"`."
         },
         "titlePadding": {
           "description": "The padding, in pixel, between facet header's title and the label.\n\n__Default value:__ `10`",
@@ -9905,6 +10011,44 @@
         "band"
       ],
       "type": "string"
+    },
+    "ScaledValueRef<Align>": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/BaseValueRef<Align>"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "scale": {
+              "$ref": "#/definitions/Field"
+            }
+          },
+          "required": [
+            "scale"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "band": {
+              "type": [
+                "boolean",
+                "number"
+              ]
+            },
+            "scale": {
+              "$ref": "#/definitions/Field"
+            }
+          },
+          "required": [
+            "scale",
+            "band"
+          ],
+          "type": "object"
+        }
+      ]
     },
     "ScaledValueRef<TitleAnchor>": {
       "anyOf": [
