@@ -1,29 +1,22 @@
-import {TUPLE, unitName} from '..';
 import {TransformCompiler} from './transforms';
 
 const CLEAR = '_clear';
 
+const CLEAR_EVENTS = {click: 'dblclick', mouseover: 'mouseout'};
+
 const clear: TransformCompiler = {
   has: selCmpt => {
-    return selCmpt.type === 'multi' && selCmpt.clear;
+    return true;
   },
 
   signals: (model, selCmpt, signals) => {
+    const type = CLEAR_EVENTS[selCmpt.events[0].type];
+
     return signals.concat({
       name: selCmpt.name + CLEAR,
       value: false,
-      on: [{events: selCmpt.events, update: selCmpt.clear}]
+      on: [{events: [{source: 'scope', type: type}], update: `modify(\"${selCmpt.name}_store\", null, true)`}]
     });
-  },
-
-  modifyExpr: (model, selCmpt, expr) => {
-    const tpl = selCmpt.name + TUPLE;
-    const signal = selCmpt.name + CLEAR;
-
-    return (
-      `${signal} ? null : ${tpl}, ` +
-      (selCmpt.resolve === 'global' ? `${signal} ? null : true` : `${signal} ? null : {unit: ${unitName(model)}}`)
-    );
   }
 };
 

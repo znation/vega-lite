@@ -256,7 +256,6 @@ export const defaultConfig: SelectionConfig = {
   single: {
     on: 'click',
     fields: [SELECTION_ID],
-    clear: 'dblclick',
     resolve: 'global',
     empty: 'all'
   },
@@ -264,7 +263,6 @@ export const defaultConfig: SelectionConfig = {
     on: 'click',
     fields: [SELECTION_ID],
     toggle: 'event.shiftKey',
-    clear: 'dblclick',
     resolve: 'global',
     empty: 'all'
   },
@@ -273,7 +271,6 @@ export const defaultConfig: SelectionConfig = {
     encodings: ['x', 'y'],
     translate: '[mousedown, window:mouseup] > window:mousemove!',
     zoom: 'wheel!',
-    clear: 'dblclick',
     mark: {fill: '#333', fillOpacity: 0.125, stroke: 'white'},
     resolve: 'global'
   }
