@@ -36,8 +36,12 @@ export function singleOrMultiSignals(model: UnitModel, selCmpt: SelectionCompone
       on: [
         {
           events: selCmpt.events,
-          update: `datum && item().mark.marktype !== 'group'  && item().mark.name == 'layer_1_marks' ? {${update}: [${values}]} : null`,
+          update: `datum && item().mark.marktype !== 'group' ? {${update}: [${values}]} : null`,
           force: true
+        },
+        {
+          events: selCmpt.clear,
+          update: 'null'
         }
       ]
     }

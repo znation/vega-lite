@@ -4,7 +4,6 @@ import {SelectionDef} from '../../../selection';
 import {Dict} from '../../../util';
 import {Model} from '../../model';
 import {UnitModel} from '../../unit';
-import clear from './clear';
 import inputs from './inputs';
 import nearest from './nearest';
 import project from './project';
@@ -29,8 +28,7 @@ const compilers: Dict<TransformCompiler> = {
   translate,
   zoom,
   inputs,
-  nearest,
-  clear
+  nearest
 };
 
 export function forEachTransform(selCmpt: SelectionComponent, cb: (tx: TransformCompiler) => void) {
