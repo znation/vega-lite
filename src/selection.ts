@@ -79,6 +79,11 @@ export interface SingleSelectionConfig extends BaseSelectionDef {
    * Initialize the selection with a mapping between [projected channels or field names](https://vega.github.io/vega-lite/docs/project.html) and initial values.
    */
   init?: SelectionInitMapping;
+
+  /**
+   * TODO add clear documentation
+   */
+  clear?: string | boolean;
 }
 
 export interface MultiSelectionConfig extends BaseSelectionDef {
@@ -107,6 +112,11 @@ export interface MultiSelectionConfig extends BaseSelectionDef {
    * value (or array of values).
    */
   init?: SelectionInitMapping | SelectionInitMapping[];
+
+  /**
+   * TODO add clear documentation
+   */
+  clear?: string | boolean;
 }
 
 export interface BrushConfig {
@@ -191,6 +201,11 @@ export interface IntervalSelectionConfig extends BaseSelectionDef {
    * initial values.
    */
   init?: SelectionInitArrayMapping;
+
+  /**
+   * TODO add clear documentation
+   */
+  clear?: string | boolean;
 }
 
 export interface SingleSelection extends SingleSelectionConfig {
@@ -241,6 +256,7 @@ export const defaultConfig: SelectionConfig = {
   single: {
     on: 'click',
     fields: [SELECTION_ID],
+    clear: 'dblclick',
     resolve: 'global',
     empty: 'all'
   },
@@ -248,6 +264,7 @@ export const defaultConfig: SelectionConfig = {
     on: 'click',
     fields: [SELECTION_ID],
     toggle: 'event.shiftKey',
+    clear: 'dblclick',
     resolve: 'global',
     empty: 'all'
   },
@@ -256,6 +273,7 @@ export const defaultConfig: SelectionConfig = {
     encodings: ['x', 'y'],
     translate: '[mousedown, window:mouseup] > window:mousemove!',
     zoom: 'wheel!',
+    clear: 'dblclick',
     mark: {fill: '#333', fillOpacity: 0.125, stroke: 'white'},
     resolve: 'global'
   }
