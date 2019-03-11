@@ -83,7 +83,7 @@ export interface SingleSelectionConfig extends BaseSelectionDef {
   /**
    * TODO add clear documentation
    */
-  clear?: string | boolean;
+  clear?: string;
 }
 
 export interface MultiSelectionConfig extends BaseSelectionDef {
